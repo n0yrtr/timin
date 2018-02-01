@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../css/App.css';
 import Card from './Card'
 
 class Category extends Component {

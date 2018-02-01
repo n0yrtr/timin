@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../images/logo.svg';
+import '../css/App.css';
 import Category from './Category'
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
                   <div className="area_current">
                   </div>
                   <div className="area_cards">
-                      <Category category />
+                      <Category />
                   </div>
               </div>
 
