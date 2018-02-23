@@ -1,5 +1,7 @@
 package com.timin.service.task.update;
 
+import com.timin.domain.task.Task;
+
 public interface TaskUpdateService {
 
     /**
@@ -7,5 +9,5 @@ public interface TaskUpdateService {
      * @param name
      * @return
      */
-    int add(String name);
+    Task add(String name);
 }
