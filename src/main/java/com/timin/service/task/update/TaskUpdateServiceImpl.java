@@ -4,7 +4,7 @@ import com.timin.repository.task.write.entity.Task;
 import com.timin.repository.task.write.entity.TaskName;
 import com.timin.repository.Constant;
 import com.timin.repository.task.write.TaskNameRepository;
-import com.timin.repository.task.write.TaskRepository;
+import com.timin.repository.task.write.WriteTaskDao;
 import org.seasar.doma.jdbc.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Service
 public class TaskUpdateServiceImpl implements TaskUpdateService {
     @Autowired
-    TaskRepository taskRepository;
+    WriteTaskDao taskDao;
     @Autowired
     TaskNameRepository taskNameRepository;
 
@@ -31,7 +31,7 @@ public class TaskUpdateServiceImpl implements TaskUpdateService {
                 .in(now).out(Constant.UNDEFINED_END_DATE)
                 .build();
 
-        Result<Task> result = taskRepository.insert(task);
+        Result<Task> result = taskDao.insert(task);
 
         TaskName nameData = TaskName.builder()
                 .name(name)

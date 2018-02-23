@@ -11,6 +11,9 @@ import java.util.List;
 import com.timin.CsvDataSetLoader;
 import com.timin.TestDataSourceConfig;
 import com.timin.TiminApplication;
+import com.timin.repository.task.read.dao.TaskDao;
+import com.timin.repository.task.read.entity.Task;
+import com.timin.repository.task.read.entity.embeddable.TaskName;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +32,6 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 import com.timin.ReplacementCsvDataSetLoader;
-import com.timin.entity.ActiveIn;
 
 /**
  * Created by naoya on 2018/01/02.
@@ -46,19 +48,26 @@ import com.timin.entity.ActiveIn;
         DbUnitTestExecutionListener.class
 })
 @Transactional
-public class TaskMoveRepositoryTests {
+public class WriteTaskDaoTests {
 
     private static final String DATA_FILE_PATH = "/SampleRepository/";
 
     @Autowired(required=true)
-    public TaskMoveRepository taskMoveRepository;
+    public TaskDao taskDao;
 
     @Test
-    @DatabaseSetup(value = DATA_FILE_PATH + "selectAll/active_in.xml")
+    @DatabaseSetup(value = DATA_FILE_PATH + "selectAll/task.xml")
     public void selectAllテスト() {
-        ActiveIn expect1 = ActiveIn.builder().inTime(LocalDateTime.of(2018,10,11,00,22,33)).taskId(1L).build();
+        Task expect1 = Task.builder()
+                .id(1L)
+                .in(LocalDateTime.of(1996,10,11,00,22,33))
+                .out(LocalDateTime.of(2018,10,11,00,22,33))
+                .from(LocalDateTime.of(1996,10,11,00,22,33))
+                .thru(LocalDateTime.of(2018,10,11,00,22,33))
+                .taskName(new TaskName("Name"))
+                .build();
 
-        List<ActiveIn> actual = taskMoveRepository.selectAll();
+        List<Task> actual = taskDao.selectAll(LocalDateTime.of(2000,1,1,0,00));
 
         assertThat(actual.get(0), samePropertyValuesAs(expect1));
 

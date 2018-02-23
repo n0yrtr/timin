@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Dao
 @ConfigAutowireable
 @Repository
-public interface TaskRepository {
+public interface WriteTaskDao {
     @Insert
     Result<Task> insert(Task entity);
 
