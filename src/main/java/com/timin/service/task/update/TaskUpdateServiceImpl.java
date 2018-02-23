@@ -27,16 +27,16 @@ public class TaskUpdateServiceImpl implements TaskUpdateService {
         LocalDateTime now = LocalDateTime.now();
 
         Task task = Task.builder()
-                .from(now).thru(Constant.UNDEFINED_END_DATE)
-                .in(now).out(Constant.UNDEFINED_END_DATE)
+                .dataFrom(now).dataThru(Constant.UNDEFINED_END_DATE)
+                .dataIn(now).dataOut(Constant.UNDEFINED_END_DATE)
                 .build();
 
         Result<Task> result = taskDao.insert(task);
 
         TaskName nameData = TaskName.builder()
                 .name(name)
-                .from(now).thru(Constant.UNDEFINED_END_DATE)
-                .in(now).out(Constant.UNDEFINED_END_DATE)
+                .dataFrom(now).dataThru(Constant.UNDEFINED_END_DATE)
+                .dataIn(now).dataOut(Constant.UNDEFINED_END_DATE)
                 .build();
 
         Result<TaskName> nameResult = taskNameRepository.insert(nameData);

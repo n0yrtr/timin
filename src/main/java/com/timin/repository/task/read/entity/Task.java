@@ -20,10 +20,10 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private final Long id;
     private final TaskName taskName;
-    private final LocalDateTime from;
-    private final LocalDateTime thru;
-    private final LocalDateTime in;
-    private final LocalDateTime out;
+    private final LocalDateTime dataFrom;
+    private final LocalDateTime dataThru;
+    private final LocalDateTime dataIn;
+    private final LocalDateTime dataOut;
 
 
 }

@@ -15,8 +15,8 @@ public class TaskMapperImpl implements TaskMapper {
         Name name = Name.builder().value(task.getTaskName().getName()).build();
 
         List<Period> periodDomainList = workTimeList.stream().map(workTime -> {
-            Edge start = Edge.builder().value(workTime.getFrom()).build();
-            Edge end = Edge.builder().value(workTime.getThru()).build();
+            Edge start = Edge.builder().value(workTime.getDataFrom()).build();
+            Edge end = Edge.builder().value(workTime.getDataThru()).build();
             return Period.builder()
                     .start(start)
                     .end(end)

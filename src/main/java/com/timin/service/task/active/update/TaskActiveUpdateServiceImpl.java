@@ -27,8 +27,8 @@ public class TaskActiveUpdateServiceImpl implements TaskActiveUpdateService {
         LocalDateTime now = LocalDateTime.now();
         Active insertData = Active.builder()
                 .taskId(id)
-                .from(now).thru(Constant.UNDEFINED_END_DATE)
-                .in(now).out(Constant.UNDEFINED_END_DATE)
+                .dataFrom(now).dataThru(Constant.UNDEFINED_END_DATE)
+                .dataIn(now).dataOut(Constant.UNDEFINED_END_DATE)
                 .build();
         return taskActiveRepository.insert(insertData).getEntity();
     }

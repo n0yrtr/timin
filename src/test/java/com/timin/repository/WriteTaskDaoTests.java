@@ -60,10 +60,10 @@ public class WriteTaskDaoTests {
     public void selectAllテスト() {
         Task expect1 = Task.builder()
                 .id(1L)
-                .in(LocalDateTime.of(1996,10,11,00,22,33))
-                .out(LocalDateTime.of(2018,10,11,00,22,33))
-                .from(LocalDateTime.of(1996,10,11,00,22,33))
-                .thru(LocalDateTime.of(2018,10,11,00,22,33))
+                .dataIn(LocalDateTime.of(1996,10,11,00,22,33))
+                .dataOut(LocalDateTime.of(2018,10,11,00,22,33))
+                .dataFrom(LocalDateTime.of(1996,10,11,00,22,33))
+                .dataThru(LocalDateTime.of(2018,10,11,00,22,33))
                 .taskName(new TaskName("Name"))
                 .build();
 
