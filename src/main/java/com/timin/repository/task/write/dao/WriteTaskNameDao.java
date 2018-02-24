@@ -8,6 +8,8 @@ import org.seasar.doma.boot.ConfigAutowireable;
 import org.seasar.doma.jdbc.Result;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
+
 @Dao
 @ConfigAutowireable
 @Repository

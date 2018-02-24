@@ -1,6 +1,6 @@
 package com.timin.domain.task;
 
-import com.timin.controller.response.CardResponse;
+import com.timin.presentation.controller.response.CardResponse;
 import lombok.Builder;
 
 @Builder

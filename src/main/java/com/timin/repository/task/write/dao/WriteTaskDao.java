@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WriteTaskDao {
     @Insert
-    Result<Task> insert(Task entity);
+    Result<Task> insert(Task task);
 
     @Update(excludeNull = true)
     Result<Task> update(Task entity);

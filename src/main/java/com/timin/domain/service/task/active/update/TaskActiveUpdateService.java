@@ -1,4 +1,4 @@
-package com.timin.service.task.active.update;
+package com.timin.domain.service.task.active.update;
 
 
 import com.timin.repository.task.write.entity.Active;

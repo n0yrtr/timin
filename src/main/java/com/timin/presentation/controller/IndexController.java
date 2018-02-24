@@ -1,7 +1,8 @@
-package com.timin.controller;
+package com.timin.presentation.controller;
 
-import java.util.List;
-
+import com.timin.domain.service.task.refer.TaskReferService;
+import com.timin.domain.service.task.update.TaskUpdateService;
+import com.timin.presentation.controller.response.CardResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.timin.controller.response.CardResponse;
-import com.timin.service.task.refer.TaskReferService;
+import java.util.List;
 
 /**
  * Created by naoya on 2017/10/29.
@@ -23,6 +23,9 @@ public class IndexController {
 
     @Autowired
     TaskReferService taskReferService;
+
+    @Autowired
+    TaskUpdateService taskUpdateService;
 
     @RequestMapping("/")
     public String index() {
@@ -37,5 +40,5 @@ public class IndexController {
         logger.debug(taskList);
         return taskList;
     }
-
+    
 }

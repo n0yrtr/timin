@@ -1,7 +1,7 @@
-package com.timin.controller;
+package com.timin.presentation.controller;
 
 import com.timin.repository.task.write.entity.Active;
-import com.timin.service.task.active.update.TaskActiveUpdateService;
+import com.timin.domain.service.task.active.update.TaskActiveUpdateService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

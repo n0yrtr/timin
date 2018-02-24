@@ -1,4 +1,4 @@
-package com.timin.controller.response;
+package com.timin.presentation.controller.response;
 
 /**
  * カード表示用インターフェース

@@ -1,4 +1,4 @@
-package com.timin.service.task.refer;
+package com.timin.domain.service.task.refer;
 
 
 import com.timin.domain.task.Task;

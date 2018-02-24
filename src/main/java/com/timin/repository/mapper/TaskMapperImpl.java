@@ -1,6 +1,7 @@
 package com.timin.repository.mapper;
 
 import com.timin.domain.task.*;
+import com.timin.repository.task.write.entity.TaskName;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -26,5 +27,15 @@ public class TaskMapperImpl implements TaskMapper {
 
         Task target = Task.builder().name(name).workTime(workTimeDomain).build();
         return target;
+    }
+
+    @Override
+    public com.timin.repository.task.write.entity.Task convertToTask(Task task) {
+        return null;
+    }
+
+    @Override
+    public TaskName convertToTaskName(Task task) {
+        return null;
     }
 }

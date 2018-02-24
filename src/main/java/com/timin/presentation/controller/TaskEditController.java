@@ -1,13 +1,13 @@
-package com.timin.controller;
+package com.timin.presentation.controller;
 
 import com.timin.domain.task.Task;
-import com.timin.service.task.update.TaskUpdateService;
+import com.timin.domain.service.task.update.TaskUpdateService;
+import com.timin.presentation.controller.request.AddTaskForm;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by naoya on 2017/10/29.
@@ -21,9 +21,9 @@ public class TaskEditController {
     @Autowired
     TaskUpdateService taskUpdateService;
 
-    @RequestMapping("/add")
-    public Task add(@RequestParam("name")String name) {
-        Task task = taskUpdateService.add(name);
+    @PostMapping(value = "/add")
+    public Task add(@ModelAttribute AddTaskForm taskForm) {
+        Task task = taskUpdateService.add(taskForm);
         return task;
     }
 

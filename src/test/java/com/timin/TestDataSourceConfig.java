@@ -6,9 +6,9 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 public class TestDataSourceConfig {
-    private static final String URL = "jdbc:postgresql://localhost:5432/test";
-    private static final String USERNAME = "postgres";
-    private static final String PASSWORD = "postgres";
+    private static final String URL = "jdbc:mysql://localhost:3306/timin";
+    private static final String USERNAME = "timinuser";
+    private static final String PASSWORD = "timinuser";
 
     @Bean
     public DataSource dataSource() {
