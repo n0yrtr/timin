@@ -1,4 +1,4 @@
-package com.timin.repository.task.read;
+package com.timin.repository.task.read.dao;
 
 import com.timin.repository.task.write.entity.WorkTime;
 import org.seasar.doma.Dao;
@@ -12,7 +12,7 @@ import java.util.List;
 @Dao
 @ConfigAutowireable
 @Repository
-public interface WorkTimeRepository {
+public interface WorkTimeDao {
     @Select
     List<WorkTime> selectByTaskId(Long taskId, LocalDateTime now);
 }

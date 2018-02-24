@@ -3,6 +3,7 @@ package com.timin.repository.task.read;
 import com.timin.domain.task.Task;
 import com.timin.repository.mapper.TaskMapper;
 import com.timin.repository.task.read.dao.TaskDao;
+import com.timin.repository.task.read.dao.WorkTimeDao;
 import org.seasar.doma.boot.ConfigAutowireable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,7 +20,7 @@ public class TaskRepository {
     private TaskDao taskDao;
 
     @Autowired
-    private WorkTimeRepository workTimeRepository;
+    private WorkTimeDao workTimeDao;
 
     @Autowired
     private TaskMapper taskMapper;
@@ -28,7 +29,7 @@ public class TaskRepository {
         LocalDateTime now = LocalDateTime.now();
         return taskDao.selectAll(now)
                 .stream()
-                .map(task -> taskMapper.convert(task, workTimeRepository.selectByTaskId(task.getId(), now)))
+                .map(task -> taskMapper.convert(task, workTimeDao.selectByTaskId(task.getId(), now)))
                 .collect(Collectors.toList());
     }
 }

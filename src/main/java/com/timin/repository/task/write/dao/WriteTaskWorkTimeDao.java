@@ -1,4 +1,4 @@
-package com.timin.repository.task.write;
+package com.timin.repository.task.write.dao;
 
 import com.timin.repository.task.write.entity.WorkTime;
 import org.seasar.doma.Dao;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Dao
 @ConfigAutowireable
 @Repository
-public interface TaskWorkTimeRepository {
+public interface WriteTaskWorkTimeDao {
     @Insert
     Result<WorkTime> insert(WorkTime entity);
 

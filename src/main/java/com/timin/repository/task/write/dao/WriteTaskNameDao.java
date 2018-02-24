@@ -1,6 +1,6 @@
-package com.timin.repository.task.write;
+package com.timin.repository.task.write.dao;
 
-import com.timin.repository.task.write.entity.Active;
+import com.timin.repository.task.write.entity.TaskName;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Update;
@@ -11,9 +11,10 @@ import org.springframework.stereotype.Repository;
 @Dao
 @ConfigAutowireable
 @Repository
-public interface TaskActiveRepository {
+public interface WriteTaskNameDao {
     @Insert
-    Result<Active> insert(Active entity);
+    Result<TaskName> insert(TaskName entity);
+
     @Update(excludeNull = true)
-    Result<Active> update(Active entity);
+    Result<TaskName> update(TaskName entity);
 }

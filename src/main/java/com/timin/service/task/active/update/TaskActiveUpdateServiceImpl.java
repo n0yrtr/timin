@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.timin.repository.Constant;
-import com.timin.repository.task.write.TaskActiveRepository;
 import com.timin.repository.task.write.entity.Active;
+import com.timin.repository.task.write.dao.WriteTaskActiveDao;
 
 @Service
 public class TaskActiveUpdateServiceImpl implements TaskActiveUpdateService {
 
     @Autowired
-    TaskActiveRepository taskActiveRepository;
+    WriteTaskActiveDao writeTaskActiveDao;
 
     /**
      *
@@ -30,7 +30,7 @@ public class TaskActiveUpdateServiceImpl implements TaskActiveUpdateService {
                 .dataFrom(now).dataThru(Constant.UNDEFINED_END_DATE)
                 .dataIn(now).dataOut(Constant.UNDEFINED_END_DATE)
                 .build();
-        return taskActiveRepository.insert(insertData).getEntity();
+        return writeTaskActiveDao.insert(insertData).getEntity();
     }
 
 }

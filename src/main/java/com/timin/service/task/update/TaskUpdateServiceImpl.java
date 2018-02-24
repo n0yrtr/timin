@@ -3,8 +3,8 @@ package com.timin.service.task.update;
 import com.timin.repository.task.write.entity.Task;
 import com.timin.repository.task.write.entity.TaskName;
 import com.timin.repository.Constant;
-import com.timin.repository.task.write.TaskNameRepository;
-import com.timin.repository.task.write.WriteTaskDao;
+import com.timin.repository.task.write.dao.WriteTaskNameDao;
+import com.timin.repository.task.write.dao.WriteTaskDao;
 import org.seasar.doma.jdbc.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class TaskUpdateServiceImpl implements TaskUpdateService {
     @Autowired
     WriteTaskDao taskDao;
     @Autowired
-    TaskNameRepository taskNameRepository;
+    WriteTaskNameDao writeTaskNameDao;
 
 
     /**
@@ -39,7 +39,7 @@ public class TaskUpdateServiceImpl implements TaskUpdateService {
                 .dataIn(now).dataOut(Constant.UNDEFINED_END_DATE)
                 .build();
 
-        Result<TaskName> nameResult = taskNameRepository.insert(nameData);
+        Result<TaskName> nameResult = writeTaskNameDao.insert(nameData);
 
         // FIXME
         return null;
