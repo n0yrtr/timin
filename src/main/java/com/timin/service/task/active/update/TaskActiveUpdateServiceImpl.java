@@ -2,12 +2,12 @@ package com.timin.service.task.active.update;
 
 import java.time.LocalDateTime;
 
-import com.timin.repository.Constant;
-import com.timin.repository.task.write.entity.Active;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.timin.repository.Constant;
 import com.timin.repository.task.write.TaskActiveRepository;
+import com.timin.repository.task.write.entity.Active;
 
 @Service
 public class TaskActiveUpdateServiceImpl implements TaskActiveUpdateService {

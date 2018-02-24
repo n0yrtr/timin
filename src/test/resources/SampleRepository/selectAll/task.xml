@@ -1,5 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-    <task id="1" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+ 	<!-- taskのout -->
+    <task id="1" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="1998-10-11 00:22:33" />
     <task_name task_id="1" name="Name" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+
+	<!-- taskのthru -->
+	<task id="2" data_from="1996-10-11 00:22:33" data_thru="1998-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <task_name task_id="2" name="Name" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+
+	<!-- taskのfrom -->
+    <task id="3" data_from="2001-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <task_name task_id="3" name="Name" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+
+	<!-- taskのin -->
+    <task id="4" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="2001-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <task_name task_id="4" name="Name" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+
+    <!-- 取得可能な2件 -->
+	<task id="5" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <task_name task_id="5" name="Name" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <task id="6" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <task_name task_id="6" name="Name" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+
+    <!-- task_nameのout -->
+	<task id="7" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <task_name task_id="7" name="Name" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="1996-10-11 00:22:33" />
+    <!-- task_nameのthru -->
+	<task id="8" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <task_name task_id="8" name="Name" data_from="1996-10-11 00:22:33" data_thru="1998-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <!-- task_nameのfrom -->
+	<task id="9" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <task_name task_id="9" name="Name" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="2001-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <!-- task_nameのin -->
+	<task id="10" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="1996-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
+    <task_name task_id="10" name="Name" data_from="1996-10-11 00:22:33" data_thru="2018-10-11 00:22:33" data_in="2001-10-11 00:22:33" data_out="2018-10-11 00:22:33" />
 </dataset>
