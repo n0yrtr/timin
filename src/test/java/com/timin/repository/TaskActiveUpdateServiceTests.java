@@ -20,10 +20,9 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.timin.TestDataSourceConfig;
 import com.timin.TiminApplication;
-import com.timin.repository.task.read.TaskRepository;
-import com.timin.repository.task.write.TaskActiveRepository;
+import com.timin.domain.service.task.active.update.TaskActiveUpdateService;
+import com.timin.repository.task.write.dao.WriteTaskActiveDao;
 import com.timin.repository.task.write.entity.Active;
-import com.timin.service.task.active.update.TaskActiveUpdateService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {
@@ -44,18 +43,15 @@ public class TaskActiveUpdateServiceTests {
 
 	@Autowired
 	private TaskActiveUpdateService taskActiveUpdateService;
-	@Autowired
-	private TaskRepository taskRepository;
 
 	@Autowired
-    TaskActiveRepository taskActiveRepository;
+    WriteTaskActiveDao writeTaskActiveDao;
 
 	@Test
 	@DatabaseSetup(value = DATA_FILE_PATH + "fetchAll/task.xml")
 	@Transactional
 	public void アクティブ化できてる() {
 		Long addId = 5L;
-		System.out.println(taskRepository.fetchAllTask());
 		Active task = taskActiveUpdateService.active(addId);
 		assertThat(task.getTaskId(), is(addId));
 	}

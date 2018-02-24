@@ -5,9 +5,6 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -31,8 +28,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.timin.TestDataSourceConfig;
 import com.timin.TiminApplication;
-import com.timin.domain.task.Task;
-import com.timin.service.task.refer.TaskReferService;
+import com.timin.domain.service.task.refer.TaskReferService;
+import com.timin.presentation.controller.IndexController;
 
 /**
  * Created by naoya on 2018/01/02.
@@ -54,8 +51,6 @@ import com.timin.service.task.refer.TaskReferService;
 
 public class indexContorollerTests {
 
-    private static final String DATA_FILE_PATH = "/SampleRepository/";
-
     private MockMvc mvc;
 
     @Rule
@@ -64,14 +59,8 @@ public class indexContorollerTests {
     @InjectMocks
     private IndexController indexController;
 
-    /*@Mock
-    private TaskRepository taskRepository;*/
-
     @Mock
     private TaskReferService taskReferService;
-
-    /*@Autowired(required=true)
-    public TaskDao taskDao;*/
 
     @Before
     public void setup(){
@@ -81,9 +70,7 @@ public class indexContorollerTests {
 
     @Test
     public void indexcontroller() throws Exception {
-    	List<Task> test = new ArrayList<Task>();
     	when(this.taskReferService.initDisplay()).thenReturn(null);
-    	//when(taskRepository.fetchAllTask()).thenReturn(test);
 
     	mvc.perform(get("/tasks")).andExpect(status().isOk());
     }

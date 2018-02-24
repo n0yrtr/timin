@@ -29,7 +29,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.timin.TestDataSourceConfig;
 import com.timin.TiminApplication;
-import com.timin.service.task.active.update.TaskActiveUpdateService;
+import com.timin.domain.service.task.active.update.TaskActiveUpdateService;
+import com.timin.presentation.controller.TaskActiveController;
 
 /**
  * Created by naoya on 2018/01/02.
@@ -51,8 +52,6 @@ import com.timin.service.task.active.update.TaskActiveUpdateService;
 
 public class TaskActiveContorollerTests {
 
-    private static final String DATA_FILE_PATH = "/SampleRepository/";
-
     private MockMvc mvc;
 
     @Rule
@@ -61,14 +60,8 @@ public class TaskActiveContorollerTests {
     @InjectMocks
     private TaskActiveController taskActiveController;
 
-    /*@Mock
-    private TaskRepository taskRepository;*/
-
     @Mock
-    private TaskActiveUpdateService taskActiveUpdateService;
-
-    /*@Autowired(required=true)
-    public TaskDao taskDao;*/
+    TaskActiveUpdateService taskActiveUpdateService;
 
     @Before
     public void setup(){
@@ -82,6 +75,6 @@ public class TaskActiveContorollerTests {
     	Long taskId = 5L;
     	when(this.taskActiveUpdateService.active(taskId)).thenReturn(null);
 
-    	mvc.perform(get("/active/" + taskId)).andExpect(status().isOk());
+    	mvc.perform(post("/task/active/" + taskId)).andExpect(status().isOk());
     }
 }
