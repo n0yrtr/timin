@@ -36,6 +36,6 @@ public class TaskMapperImpl implements TaskMapper {
 
     @Override
     public TaskName convertToTaskName(Task task) {
-        return null;
+        return TaskName.builder().name(task.getTitle()).build();
     }
 }

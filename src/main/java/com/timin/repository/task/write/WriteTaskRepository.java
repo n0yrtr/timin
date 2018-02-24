@@ -38,6 +38,7 @@ public class WriteTaskRepository {
 
         TaskName writingTaskName = TaskName.builder()
                 .taskId(addedTask.getEntity().getId())
+                .name(convertedTaskName.getName())
                 .dataFrom(now).dataThru(Constant.UNDEFINED_END_DATE)
                 .dataIn(now).dataOut(Constant.UNDEFINED_END_DATE)
                 .build();
