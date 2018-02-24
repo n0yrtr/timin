@@ -50,7 +50,7 @@ public class TaskActiveUpdateServiceTests {
 	@Test
 	@DatabaseSetup(value = DATA_FILE_PATH + "fetchAll/task.xml")
 	@Transactional
-	public void アクティブ化できてる() {
+	public void アクティブできてる() {
 		Long addId = 5L;
 		Active task = taskActiveUpdateService.active(addId);
 		assertThat(task.getTaskId(), is(addId));

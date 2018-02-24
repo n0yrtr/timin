@@ -21,7 +21,6 @@ import com.timin.TestDataSourceConfig;
 import com.timin.TiminApplication;
 import com.timin.domain.task.Task;
 import com.timin.repository.task.read.TaskRepository;
-import com.timin.repository.task.read.dao.TaskDao;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {
@@ -40,9 +39,6 @@ public class TaskRepositoryTests {
 
 	@Autowired
 	private TaskRepository taskRepository;
-
-	@Autowired
-	private TaskDao taskDao;
 
 	@Test
 	@DatabaseSetup(value = DATA_FILE_PATH + "fetchAll/task.xml")

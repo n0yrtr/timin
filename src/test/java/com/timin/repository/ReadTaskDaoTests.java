@@ -1,10 +1,12 @@
 package com.timin.repository;
 
 
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.Matchers.*;
+//staticインポート
 import static org.junit.Assert.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,8 +23,9 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.timin.TestDataSourceConfig;
 import com.timin.TiminApplication;
-import com.timin.repository.task.write.dao.WriteTaskDao;
-import com.timin.repository.task.write.entity.Task;
+import com.timin.repository.task.read.dao.TaskDao;
+import com.timin.repository.task.read.entity.Task;
+import com.timin.repository.task.read.entity.embeddable.TaskName;
 
 /**
  * Created by naoya on 2018/01/02.
@@ -39,22 +42,37 @@ import com.timin.repository.task.write.entity.Task;
         DbUnitTestExecutionListener.class
 })
 @Transactional
-public class WriteTaskDaoTests {
+public class ReadTaskDaoTests {
 
     private static final String DATA_FILE_PATH = "/SampleRepository/";
 
-    @Autowired
-    public WriteTaskDao writeTaskDao;
+    @Autowired(required=true)
+    public TaskDao taskDao;
 
     @Test
     @DatabaseSetup(value = DATA_FILE_PATH + "selectAll/task.xml")
-    @Transactional
-    public void 一件登録する() {
-    	LocalDateTime now = LocalDateTime.now();
-    	Task insertData = Task.builder()
-                .dataFrom(now).dataThru(Constant.UNDEFINED_END_DATE)
-                .dataIn(now).dataOut(Constant.UNDEFINED_END_DATE)
+    public void 期待している件数が取得できているか() {
+        Integer expect1 = 2;
+
+        List<Task> actual = taskDao.selectAll(LocalDateTime.of(2000,1,1,0,00));
+
+        assertThat(actual.size(), is(expect1));
+    }
+
+    @Test
+    @DatabaseSetup(value = DATA_FILE_PATH + "selectAll/task.xml")
+    public void 期待している件数が取得できている() {
+        Task expect1 = Task.builder()
+                .id(1L)
+                .dataIn(LocalDateTime.of(1996,10,11,00,22,33))
+                .dataOut(LocalDateTime.of(2018,10,11,00,22,33))
+                .dataFrom(LocalDateTime.of(1996,10,11,00,22,33))
+                .dataThru(LocalDateTime.of(2018,10,11,00,22,33))
+                .taskName(new TaskName("Name"))
                 .build();
-    	assertThat(writeTaskDao.insert(insertData).getCount(), is(1));
+
+        List<Task> actual = taskDao.selectAll(LocalDateTime.of(2000,1,1,0,00));
+
+        assertThat(actual.get(0), samePropertyValuesAs(expect1));
     }
 }
