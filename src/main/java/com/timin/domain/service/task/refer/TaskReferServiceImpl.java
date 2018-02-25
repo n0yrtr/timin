@@ -29,8 +29,18 @@ public class TaskReferServiceImpl implements TaskReferService {
         return taskRepository.fetchAllTask();
     }
 
+    /**
+     * ({@inheritDoc})
+     *
+     * @return
+     */
     @Override
     public List<Category> showCategory() {
         return categoryRepository.fetchAllTask();
+    }
+
+    @Override
+    public List<Task> showNotAssociatedTask() {
+        return taskRepository.fetchNotAssociatedTask();
     }
 }

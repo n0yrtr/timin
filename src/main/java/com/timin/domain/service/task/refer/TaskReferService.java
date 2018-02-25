@@ -19,4 +19,10 @@ public interface TaskReferService {
      */
     List<Category> showCategory();
 
+    /**
+     * カテゴリに紐付かないタスク
+     * @return
+     */
+    List<Task> showNotAssociatedTask();
+
 }

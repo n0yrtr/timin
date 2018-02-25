@@ -19,4 +19,7 @@ public interface TaskDao {
 
     @Select
     List<Task> selectByCategoryId(Long categoryId, LocalDateTime now);
+
+    @Select
+    List<Task> selectNotAssociatedTask(LocalDateTime now);
 }

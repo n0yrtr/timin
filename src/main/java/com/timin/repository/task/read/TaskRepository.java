@@ -32,4 +32,12 @@ public class TaskRepository {
                 .map(task -> taskMapper.convert(task, workTimeDao.selectByTaskId(task.getId(), now)))
                 .collect(Collectors.toList());
     }
+
+    public List<Task> fetchNotAssociatedTask() {
+        LocalDateTime now = LocalDateTime.now();
+        return taskDao.selectNotAssociatedTask(now)
+                .stream()
+                .map(task -> taskMapper.convert(task, workTimeDao.selectByTaskId(task.getId(), now)))
+                .collect(Collectors.toList());
+    }
 }
