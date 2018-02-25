@@ -25,7 +25,7 @@ public class TaskMapperImpl implements TaskMapper {
         }).collect(Collectors.toList());
         WorkTime workTimeDomain = WorkTime.builder().periods(periodDomainList).build();
 
-        Task target = Task.builder().name(name).workTime(workTimeDomain).build();
+        Task target = Task.builder().id(TaskId.builder().value(task.getId()).build()).name(name).workTime(workTimeDomain).build();
         return target;
     }
 

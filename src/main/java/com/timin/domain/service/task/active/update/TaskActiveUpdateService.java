@@ -1,8 +1,6 @@
 package com.timin.domain.service.task.active.update;
 
 
-import com.timin.repository.task.write.entity.Active;
-
 public interface TaskActiveUpdateService {
 
     /**
@@ -10,6 +8,6 @@ public interface TaskActiveUpdateService {
      *
      * @param id
      */
-    Active active(Long id);
+    Long active(Long id);
 
 }

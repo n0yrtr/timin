@@ -23,7 +23,7 @@ public class TaskActiveController {
     TaskActiveUpdateService taskActiveUpdateService;
 
     @RequestMapping(value = "/active/{id}", method = RequestMethod.POST)
-    public Active active(@PathVariable("id")Long id) {
+    public Long active(@PathVariable("id")Long id) {
         return taskActiveUpdateService.active(id);
     }
 
