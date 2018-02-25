@@ -22,7 +22,6 @@ import com.timin.TestDataSourceConfig;
 import com.timin.TiminApplication;
 import com.timin.domain.service.task.active.update.TaskActiveUpdateService;
 import com.timin.repository.task.write.dao.WriteTaskActiveDao;
-import com.timin.repository.task.write.entity.Active;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {
@@ -52,8 +51,10 @@ public class TaskActiveUpdateServiceTests {
 	@Transactional
 	public void アクティブできてる() {
 		Long addId = 5L;
-		Active task = taskActiveUpdateService.active(addId);
-		assertThat(task.getTaskId(), is(addId));
+		Long task = taskActiveUpdateService.active(addId);
+
+		//FIXME 登録したIDが帰ってくる様になったので、検証項目を変更
+		assertThat(task, is(addId));
 	}
 
 }
