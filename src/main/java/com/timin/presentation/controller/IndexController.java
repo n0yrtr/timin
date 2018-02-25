@@ -3,6 +3,7 @@ package com.timin.presentation.controller;
 import com.timin.domain.service.task.refer.TaskReferService;
 import com.timin.domain.service.task.update.TaskUpdateService;
 import com.timin.presentation.controller.response.CardResponse;
+import com.timin.presentation.controller.response.CategoryResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,14 @@ public class IndexController {
         List<? extends CardResponse> taskList = taskReferService.initDisplay();
         logger.debug(taskList);
         return taskList;
+    }
+
+    @RequestMapping(value = "/categories", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public List<? extends CategoryResponse> getCategoryList() {
+        List<? extends CategoryResponse> categories = taskReferService.showCategory();
+        logger.debug(categories);
+        return categories;
     }
     
 }

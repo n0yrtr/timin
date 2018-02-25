@@ -1,6 +1,6 @@
 package com.timin.repository.task.read.dao;
 
-import com.timin.repository.task.read.entity.Task;
+import com.timin.repository.task.read.entity.Category;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Select;
 import org.seasar.doma.boot.ConfigAutowireable;
@@ -12,11 +12,8 @@ import java.util.List;
 @Dao
 @ConfigAutowireable
 @Repository
-public interface TaskDao {
+public interface CategoryDao {
 
     @Select
-    List<Task> selectAll(LocalDateTime now);
-
-    @Select
-    List<Task> selectByCategoryId(Long categoryId, LocalDateTime now);
+    List<Category> selectAll(LocalDateTime now);
 }
