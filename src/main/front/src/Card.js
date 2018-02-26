@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 const boxSource = {
     beginDrag(props) {
         return {
-            name: props.name,
+            task: props.task,
         }
     },
 
@@ -28,6 +28,14 @@ const boxSource = {
     isDragging: monitor.isDragging(),
 }))
 class Card extends Component {
+
+    getTimeSpan(elapsed) { // 754567(ms) -> "12:34.567"
+        var m = String(Math.floor(elapsed/1000/60)+100).substring(1);
+        var s = String(Math.floor((elapsed%(1000*60))/1000)+100).substring(1);
+        var ms = String(elapsed % 1000 + 1000).substring(1);
+        return m+":"+s+"."+ms;
+    }
+
     static propTypes = {
         connectDragSource: PropTypes.func.isRequired,
         isDragging: PropTypes.bool.isRequired,
@@ -35,7 +43,10 @@ class Card extends Component {
   render() {
     const opacity = this.props.isDragging ? 'isDraggingNow' : ''
     return this.props.connectDragSource(
-        <li>あああああああああああああああああああ{opacity}</li>
+        <li>
+            {this.props.task.title}{opacity}
+            <div>{this.getTimeSpan(this.props.task.workTime)}</div>
+        </li>
     );
   }
 }

@@ -28,7 +28,76 @@
     <div id="root"></div>
     <script type="text/javascript"   th:inline="javascript">
         document.addEventListener("DOMContentLoaded", function () {  
-            var initialData = JSON.parse( '{"id": -1, "content": "モックデータ"}');  
+
+            var initialData = JSON.parse( 
+                '{\n' +
+                '"active": {"id": 1, "title": "タスク1", "workTime": 0},    \n' +
+                '"categoryList": [\n' +
+                '        {\n' +
+                '            "id": "1", \n' +
+                '            "taskList": [\n' +
+                '                {\n' +
+                '                    "id": 1, \n' +
+                '                    "title": "タスク1",\n' +
+                '                    "workTime": 0\n' +
+                '                }, \n' +
+                '                {\n' +
+                '                    "id": 2, \n' +
+                '                    "title": "タスク2",\n' +
+                '                    "workTime": 0\n' +
+                '                }, \n' +
+                '                {\n' +
+                '                    "id": 3, \n' +
+                '                    "title": "タスク3",\n' +
+                '                     "workTime": 0\n' +
+                '                }\n' +
+                '            ], \n' +
+                '            "title": "カテゴリー1"\n' +
+                '        }, \n' +
+                '        {\n' +
+                '            "id": "2", \n' +
+                '            "taskList": [\n' +
+                '                {\n' +
+                '                    "id": 4, \n' +
+                '                    "title": "タスク4",\n' +
+                '                   "workTime": 0\n' +
+                '                }, \n' +
+                '                {\n' +
+                '                    "id": 5, \n' +
+                '                    "title": "タスク5",\n' +
+                '                   "workTime": 0\n' +
+                '                }, \n' +
+                '                {\n' +
+                '                    "id": 6, \n' +
+                '                    "title": "タスク6",\n' +
+                '                   "workTime": 0\n' +
+                '                }\n' +
+                '            ], \n' +
+                '            "title": "カテゴリー2"\n' +
+                '        }, \n' +
+                '        {\n' +
+                '            "id": "3", \n' +
+                '            "taskList": [\n' +
+                '                {\n' +
+                '                    "id": 7, \n' +
+                '                    "title": "タスク7",\n' +
+                '                    "workTime": 0\n' +
+                '                }, \n' +
+                '                {\n' +
+                '                    "id": 8, \n' +
+                '                    "title": "タスク8",\n' +
+                '                   "workTime": 0\n' +
+                '                }, \n' +
+                '                {\n' +
+                '                    "id": 9, \n' +
+                '                    "title": "タスク9",\n' +
+                '                    "workTime": 0\n' +
+                '                }\n' +
+                '            ], \n' +
+                '            "title": "カテゴリー3"\n' +
+                '        }\n' +
+                '    ]\n' +
+                '}\n');  
             renderOnClient(initialData);   },
             false);
     </script>
