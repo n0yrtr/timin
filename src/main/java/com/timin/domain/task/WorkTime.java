@@ -7,4 +7,9 @@ import java.util.List;
 @Builder
 public class WorkTime {
     private final List<Period> periods;
+
+    Period getLastPeriod() {
+        // TODO
+        return null;
+    }
 }

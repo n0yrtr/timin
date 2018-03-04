@@ -1,7 +1,8 @@
 package com.timin.presentation.controller;
 
-import com.timin.repository.task.write.entity.Active;
+import com.timin.domain.service.task.active.refer.TaskActiveService;
 import com.timin.domain.service.task.active.update.TaskActiveUpdateService;
+import com.timin.presentation.controller.response.CardResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,16 @@ public class TaskActiveController {
     @Autowired
     TaskActiveUpdateService taskActiveUpdateService;
 
+    @Autowired
+    TaskActiveService taskActiveService;
+
     @RequestMapping(value = "/active/{id}", method = RequestMethod.POST)
     public Long active(@PathVariable("id")Long id) {
         return taskActiveUpdateService.active(id);
     }
 
+    @RequestMapping(value = "/active", method = RequestMethod.GET)
+    public CardResponse getActive() {
+        return taskActiveService.showActiveTask();
+    }
 }
