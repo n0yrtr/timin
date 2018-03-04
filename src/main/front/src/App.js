@@ -55,7 +55,7 @@ class App extends Component {
             for (var j in tmpState.categoryList[i].taskList) {
                 if (tmpState.categoryList[i].taskList[j].id == card.id) {
                     tmpState.active = card;
-                    var timer = setInterval(this.tick(), 33);
+                    var timer = setInterval(this.tick(), 33)
                     this.setState({timer: timer, data: tmpState, start: new Date()});
                     return
                 }
@@ -78,10 +78,14 @@ class App extends Component {
     }
 
     tick() {
-        var elapsed = Date.now() - this.state.start + this.state.data.active.workTime;
-        var tmpState = this.state.data;
-        this.state.data.active.workTime = elapsed;
-        this.setState({data: this.state.data})
+        let t = this;
+        return function() {
+            console.log("test:" + t.state.start);
+            var elapsed = Date.now() - t.state.start + t.state.data.active.workTime;
+            var tmpState = t.state.data;
+            t.state.data.active.workTime = elapsed;
+            t.setState({data: t.state.data})
+        }
     }
 
 
