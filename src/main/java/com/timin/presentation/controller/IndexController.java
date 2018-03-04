@@ -1,7 +1,11 @@
 package com.timin.presentation.controller;
 
+import com.timin.domain.service.task.refer.TaskReferService;
 import com.timin.presentation.controller.response.CardResponse;
 import com.timin.presentation.controller.response.CategoryResponse;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +18,11 @@ import java.util.List;
  */
 @Controller("/")
 public class IndexController {
+
+    private static final Logger logger = LogManager.getLogger(IndexController.class);
+
+    @Autowired
+    private TaskReferService taskReferService;
 
     @RequestMapping("/")
     public String index() {
