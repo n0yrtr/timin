@@ -20,7 +20,7 @@ class App extends Component {
             var tmpState = this.state.data;
             for (var i in tmpState.categoryList) {
                 if (tmpState.categoryList[i].id == categoryId) {
-                    tmpState.categoryList[i].taskList.push({"id":"1","title":title});
+                    tmpState.categoryList[i].taskList.push({"id":Math.floor( Math.random() * (20000 + 1 - 10000) ) + 10000,"title":title,"workTime": 0});
                     this.setState({data: tmpState});
                 }
             }
@@ -55,8 +55,10 @@ class App extends Component {
             for (var j in tmpState.categoryList[i].taskList) {
                 if (tmpState.categoryList[i].taskList[j].id == card.id) {
                     tmpState.active = card;
+
                     var timer = setInterval(this.tick(), 33)
-                    this.setState({timer: timer, data: tmpState, start: new Date()});
+
+                    this.setState({timer: timer, data: tmpState, start: Date.now() - tmpState.active.workTime});
                     return
                 }
             }
@@ -80,11 +82,13 @@ class App extends Component {
     tick() {
         let t = this;
         return function() {
-            console.log("test:" + t.state.start);
-            var elapsed = Date.now() - t.state.start + t.state.data.active.workTime;
-            var tmpState = t.state.data;
-            t.state.data.active.workTime = elapsed;
-            t.setState({data: t.state.data})
+            if (t.state.data.active) {
+                console.log("test:" + t.state.start);
+                var elapsed = Date.now() - t.state.start;
+                var tmpState = t.state.data;
+                t.state.data.active.workTime = elapsed;
+                t.setState({data: t.state.data})
+            }
         }
     }
 
